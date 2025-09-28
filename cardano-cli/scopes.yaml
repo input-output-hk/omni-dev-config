@@ -1,0 +1,202 @@
+scopes:
+  - name: "byron"
+    description: "Byron era specific functionality (legacy)"
+    examples:
+      - "byron: add transaction signing support"
+      - "byron: fix genesis key validation"
+    file_patterns:
+      - "cardano-cli/src/Cardano/CLI/Byron/**"
+      - "**/Byron/**"
+
+  - name: "compatible"
+    description: "Era-compatible commands (backwards compatibility layer)"
+    examples:
+      - "compatible: add transaction building for multiple eras"
+      - "compatible: fix governance command compatibility"
+    file_patterns:
+      - "cardano-cli/src/Cardano/CLI/Compatible/**"
+
+  - name: "era-based"
+    description: "Era-based commands (modern era-specific functionality)"
+    examples:
+      - "era-based: add Conway governance features"
+      - "era-based: improve transaction building"
+    file_patterns:
+      - "cardano-cli/src/Cardano/CLI/EraBased/**"
+
+  - name: "era-independent"
+    description: "Era-independent commands (cross-era functionality)"
+    examples:
+      - "era-independent: add key generation utilities"
+      - "era-independent: improve address handling"
+    file_patterns:
+      - "cardano-cli/src/Cardano/CLI/EraIndependent/**"
+
+  - name: "governance"
+    description: "Governance functionality (voting, proposals, DRep, committee)"
+    examples:
+      - "governance: add DRep registration support"
+      - "governance: implement proposal voting"
+    file_patterns:
+      - "**/Governance/**"
+      - "**/DRep/**"
+      - "**/Committee/**"
+      - "**/Vote/**"
+
+  - name: "transaction"
+    description: "Transaction building, signing, and management"
+    examples:
+      - "transaction: add multi-signature support"
+      - "transaction: fix fee calculation"
+    file_patterns:
+      - "**/Transaction/**"
+      - "**/Tx/**"
+
+  - name: "stake-address"
+    description: "Stake address operations and delegation"
+    examples:
+      - "stake-address: add delegation certificate generation"
+      - "stake-address: fix key derivation"
+    file_patterns:
+      - "**/StakeAddress/**"
+
+  - name: "stake-pool"
+    description: "Stake pool operations and certificates"
+    examples:
+      - "stake-pool: add metadata validation"
+      - "stake-pool: implement registration certificates"
+    file_patterns:
+      - "**/StakePool/**"
+
+  - name: "genesis"
+    description: "Genesis file creation and management"
+    examples:
+      - "genesis: add Conway genesis support"
+      - "genesis: fix testnet data generation"
+    file_patterns:
+      - "**/Genesis/**"
+
+  - name: "query"
+    description: "Blockchain querying functionality"
+    examples:
+      - "query: add stake distribution queries"
+      - "query: improve protocol parameters retrieval"
+    file_patterns:
+      - "**/Query/**"
+
+  - name: "key"
+    description: "Key generation, conversion, and management"
+    examples:
+      - "key: add HD wallet derivation"
+      - "key: fix key format conversion"
+    file_patterns:
+      - "**/Key/**"
+      - "cardano-cli/src/Cardano/CLI/Byron/Key.hs"
+
+  - name: "address"
+    description: "Address generation and validation"
+    examples:
+      - "address: add enterprise address support"
+      - "address: fix bech32 encoding"
+    file_patterns:
+      - "**/Address/**"
+
+  - name: "node"
+    description: "Node operational certificates and keys"
+    examples:
+      - "node: add KES key generation"
+      - "node: fix operational certificate creation"
+    file_patterns:
+      - "**/Node/**"
+
+  - name: "hash"
+    description: "Hash calculations and utilities"
+    examples:
+      - "hash: add script hash support"
+      - "hash: implement metadata hashing"
+    file_patterns:
+      - "**/Hash/**"
+
+  - name: "script"
+    description: "Script handling and validation"
+    examples:
+      - "script: add Plutus script support"
+      - "script: improve native script validation"
+    file_patterns:
+      - "**/Script/**"
+
+  - name: "json"
+    description: "JSON encoding/decoding and formatting"
+    examples:
+      - "json: add friendly output format"
+      - "json: fix metadata encoding"
+    file_patterns:
+      - "**/Json/**"
+
+  - name: "textview"
+    description: "Text envelope and CBOR viewing functionality"
+    examples:
+      - "textview: add transaction viewing"
+      - "textview: improve CBOR decoding"
+    file_patterns:
+      - "**/TextView/**"
+
+  - name: "test"
+    description: "Test suites and test utilities"
+    examples:
+      - "test: add governance integration tests"
+      - "test: fix golden test outputs"
+    file_patterns:
+      - "cardano-cli/test/**"
+      - "**/Test/**"
+
+  - name: "build"
+    description: "Build system, dependencies, and packaging"
+    examples:
+      - "build: update Cabal constraints"
+      - "build: add new dependency"
+    file_patterns:
+      - "*.cabal"
+      - "cabal.project"
+      - "flake.nix"
+      - "flake.lock"
+      - "fourmolu.yaml"
+
+  - name: "ci"
+    description: "Continuous integration and automation"
+    examples:
+      - "ci: add new workflow step"
+      - "ci: fix build cache"
+    file_patterns:
+      - ".github/**"
+      - "scripts/ci/**"
+
+  - name: "docs"
+    description: "Documentation and README files"
+    examples:
+      - "docs: update installation instructions"
+      - "docs: add governance examples"
+    file_patterns:
+      - "*.md"
+      - "**/*.md"
+      - "CHANGELOG*"
+      - "CONTRIBUTING*"
+      - "README*"
+
+  - name: "config"
+    description: "Configuration files and network parameters"
+    examples:
+      - "config: update mainnet parameters"
+      - "config: add new network configuration"
+    file_patterns:
+      - "configuration/**"
+      - "scripts/protocol-parameters.json"
+
+  - name: "scripts"
+    description: "Shell scripts and development utilities"
+    examples:
+      - "scripts: add devshell utility"
+      - "scripts: improve CI helper scripts"
+    file_patterns:
+      - "scripts/**"
+      - "*.sh"

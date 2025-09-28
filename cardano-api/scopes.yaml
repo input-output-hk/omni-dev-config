@@ -1,0 +1,224 @@
+scopes:
+  # Core API modules
+  - name: "api"
+    description: "Core cardano-api public interface and main modules"
+    examples:
+      - "api: add new query for stake pool delegation"
+      - "api: improve transaction fee estimation"
+      - "api: fix address serialization for Byron era"
+    file_patterns:
+      - "cardano-api/src/Cardano/Api.hs"
+      - "cardano-api/src/Cardano/Api/*.hs"
+
+  # Internal implementation modules
+  - name: "internal"
+    description: "Internal cardano-api implementation modules"
+    examples:
+      - "internal: refactor address validation logic"
+      - "internal: optimize CBOR serialization performance"
+      - "internal: fix era-specific transaction building"
+    file_patterns:
+      - "cardano-api/internal/**/*.hs"
+
+  # Era-specific functionality
+  - name: "eras"
+    description: "Era-specific code (Byron, Shelley, Alonzo, etc.)"
+    examples:
+      - "eras: add Conway era support for governance"
+      - "eras: fix Babbage era transaction witness handling"
+      - "eras: update Alonzo era script validation"
+    file_patterns:
+      - "cardano-api/internal/Cardano/Api/Eon/**/*.hs"
+      - "cardano-api/internal/Cardano/Api/Eras/**/*.hs"
+      - "cardano-api/src/Cardano/Api/Byron.hs"
+      - "cardano-api/src/Cardano/Api/Shelley.hs"
+
+  # Ledger integration
+  - name: "ledger"
+    description: "Ledger integration, state management, and events"
+    examples:
+      - "ledger: integrate new ledger state queries"
+      - "ledger: fix ledger event conversion for governance"
+      - "ledger: update protocol parameters handling"
+    file_patterns:
+      - "cardano-api/internal/Cardano/Api/Ledger/**/*.hs"
+      - "cardano-api/internal/Cardano/Api/LedgerState.hs"
+      - "cardano-api/internal/Cardano/Api/LedgerEvents/**/*.hs"
+      - "cardano-api/src/Cardano/Api/Ledger.hs"
+
+  # Network integration
+  - name: "network"
+    description: "Network protocol integration and chain sync"
+    examples:
+      - "network: implement new mini-protocol support"
+      - "network: fix chain sync client timeout handling"
+      - "network: add pipelined query client"
+    file_patterns:
+      - "cardano-api/src/Cardano/Api/Network.hs"
+      - "cardano-api/src/Cardano/Api/ChainSync/**/*.hs"
+      - "cardano-api/internal/Cardano/Api/IPC/**/*.hs"
+
+  # Governance functionality
+  - name: "governance"
+    description: "Governance actions, voting, and DRep functionality"
+    examples:
+      - "governance: add treasury withdrawal proposal support"
+      - "governance: implement DRep metadata validation"
+      - "governance: fix voting procedure serialization"
+    file_patterns:
+      - "cardano-api/internal/Cardano/Api/Governance/**/*.hs"
+      - "cardano-api/internal/Cardano/Api/DRepMetadata.hs"
+
+  # Transaction handling
+  - name: "tx"
+    description: "Transaction construction, signing, and validation"
+    examples:
+      - "tx: add support for reference scripts in transactions"
+      - "tx: fix transaction fee calculation for complex scripts"
+      - "tx: improve transaction body validation"
+    file_patterns:
+      - "cardano-api/internal/Cardano/Api/Tx/**/*.hs"
+      - "cardano-api/internal/Cardano/Api/TxIn.hs"
+      - "cardano-api/internal/Cardano/Api/TxMetadata.hs"
+      - "cardano-api/internal/Cardano/Api/Fees.hs"
+
+  # Keys and certificates
+  - name: "keys"
+    description: "Cryptographic keys, certificates, and operational certificates"
+    examples:
+      - "keys: add Ed25519 key derivation support"
+      - "keys: fix operational certificate verification"
+      - "keys: improve key serialization formats"
+    file_patterns:
+      - "cardano-api/internal/Cardano/Api/Keys/**/*.hs"
+      - "cardano-api/internal/Cardano/Api/Certificate.hs"
+      - "cardano-api/internal/Cardano/Api/OperationalCertificate.hs"
+      - "cardano-api/src/Cardano/Api/Crypto/**/*.hs"
+
+  # Queries and convenience functions
+  - name: "query"
+    description: "Node queries and convenience query functions"
+    examples:
+      - "query: add new epoch information query"
+      - "query: optimize stake distribution queries"
+      - "query: fix protocol parameters query for Conway era"
+    file_patterns:
+      - "cardano-api/internal/Cardano/Api/Query/**/*.hs"
+      - "cardano-api/internal/Cardano/Api/Convenience/**/*.hs"
+
+  # Scripts and script data
+  - name: "script"
+    description: "Script handling, Plutus integration, and script data"
+    examples:
+      - "script: add Plutus V3 script support"
+      - "script: fix script data JSON schema validation"
+      - "script: optimize script execution cost calculation"
+    file_patterns:
+      - "cardano-api/internal/Cardano/Api/Script.hs"
+      - "cardano-api/internal/Cardano/Api/ScriptData.hs"
+
+  # Serialization and encoding
+  - name: "serialise"
+    description: "Serialization, encoding, and format conversion"
+    examples:
+      - "serialise: add new CBOR encoding for governance actions"
+      - "serialise: fix Bech32 address encoding edge cases"
+      - "serialise: improve JSON serialization performance"
+    file_patterns:
+      - "cardano-api/internal/Cardano/Api/Serialise*.hs"
+      - "cardano-api/internal/Cardano/Api/Json.hs"
+
+  # Test generators and utilities
+  - name: "gen"
+    description: "Test generators and testing utilities"
+    examples:
+      - "gen: add generators for Conway era governance"
+      - "gen: fix property test generators for addresses"
+      - "gen: improve generator coverage for protocol parameters"
+    file_patterns:
+      - "cardano-api-gen/**/*.hs"
+      - "cardano-api/gen/**/*.hs"
+
+  # Golden tests and test files
+  - name: "golden"
+    description: "Golden tests and test reference files"
+    examples:
+      - "golden: update golden files for new serialization format"
+      - "golden: add golden tests for governance actions"
+      - "golden: fix failing golden test for protocol parameters"
+    file_patterns:
+      - "cardano-api/test/cardano-api-golden/**/*.hs"
+      - "cardano-api/test/cardano-api-golden/files/**"
+
+  # Unit and integration tests
+  - name: "test"
+    description: "Unit tests, integration tests, and test utilities"
+    examples:
+      - "test: add unit tests for new query functionality"
+      - "test: fix flaky transaction validation tests"
+      - "test: improve test coverage for era transitions"
+    file_patterns:
+      - "cardano-api/test/cardano-api-test/**/*.hs"
+      - "cardano-api/test/cardano-api-test/files/**"
+
+  # Build and project configuration
+  - name: "build"
+    description: "Build configuration, Cabal files, and project setup"
+    examples:
+      - "build: update Cabal dependencies for GHC 9.6"
+      - "build: fix compilation warnings in new GHC version"
+      - "build: adjust build flags for better optimization"
+    file_patterns:
+      - "*.cabal"
+      - "cabal.project"
+      - "fourmolu.yaml"
+
+  # Nix configuration and flakes
+  - name: "nix"
+    description: "Nix flakes, build configuration, and development shells"
+    examples:
+      - "nix: update flake inputs for latest dependencies"
+      - "nix: fix development shell configuration"
+      - "nix: add new Nix build targets"
+    file_patterns:
+      - "flake.nix"
+      - "flake.lock"
+      - "nix/**"
+
+  # CI/CD and automation
+  - name: "ci"
+    description: "GitHub Actions, CI/CD workflows, and automation"
+    examples:
+      - "ci: add workflow for testing new GHC version"
+      - "ci: fix failing build matrix for macOS"
+      - "ci: optimize CI cache usage for faster builds"
+    file_patterns:
+      - ".github/workflows/**"
+      - ".github/bin/**"
+
+  # Development tools and scripts
+  - name: "dev"
+    description: "Development tools, scripts, and utilities"
+    examples:
+      - "dev: add script for automated formatting checks"
+      - "dev: improve development shell setup"
+      - "dev: fix git hooks for style checking"
+    file_patterns:
+      - "scripts/**"
+      - ".github/githooks/**"
+
+  # Documentation
+  - name: "docs"
+    description: "Documentation, README files, and inline documentation"
+    examples:
+      - "docs: update API documentation for governance features"
+      - "docs: fix broken links in contributing guide"
+      - "docs: add examples for new query functionality"
+    file_patterns:
+      - "README.md"
+      - "CONTRIBUTING.md"
+      - "CHANGELOG.md"
+      - "RELEASING.md"
+      - "CODE_OF_CONDUCT.md"
+      - "SECURITY.md"
+      - "**/*.md"
