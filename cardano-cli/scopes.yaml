@@ -158,9 +158,26 @@ scopes:
     file_patterns:
       - "*.cabal"
       - "cabal.project"
+      - "fourmolu.yaml"
+
+  - name: "nix"
+    description: "Nix flakes, infrastructure, and build system"
+    examples:
+      - "nix: update haskell.nix to latest version"
+      - "nix: unpin flake dependencies"
+    file_patterns:
       - "flake.nix"
       - "flake.lock"
-      - "fourmolu.yaml"
+
+  - name: "deps"
+    description: "Dependency updates and version bumps"
+    examples:
+      - "deps: upgrade hedgehog-extras from ^>=0.8 to ^>=0.10"
+      - "deps: update cardano-api to latest version"
+    file_patterns:
+      - "*.cabal"
+      - "cabal.project"
+      - "flake.lock"
 
   - name: "ci"
     description: "Continuous integration and automation"

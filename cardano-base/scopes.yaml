@@ -1,0 +1,136 @@
+scopes:
+  # Core cryptography packages
+  - name: "crypto-class"
+    description: "Type classes and implementations for cryptographic primitives (signatures, hashing, KES, VRF)"
+    examples:
+      - "crypto-class: add new signature scheme support"
+      - "crypto-class: fix VRF proof verification"
+      - "crypto-class: improve error handling in key generation"
+    file_patterns:
+      - "cardano-crypto-class/**"
+      - "cardano-crypto-praos/**"
+
+  - name: "crypto-tests"
+    description: "Cryptographic test suite and benchmarks"
+    examples:
+      - "crypto-tests: add property tests for BLS signatures"
+      - "crypto-tests: improve test coverage for hash functions"
+      - "crypto-tests: add benchmark for secp256k1 operations"
+    file_patterns:
+      - "cardano-crypto-tests/**"
+
+  # Serialization
+  - name: "binary"
+    description: "Binary serialization and deserialization (CBOR)"
+    examples:
+      - "binary: add encoder for new primitive type"
+      - "binary: fix decoder for nested structures"
+      - "binary: optimize serialization performance"
+    file_patterns:
+      - "cardano-binary/**"
+
+  # Time and slots
+  - name: "slotting"
+    description: "Time and slot management for Cardano blockchain"
+    examples:
+      - "slotting: add epoch boundary calculation"
+      - "slotting: fix slot to time conversion"
+      - "slotting: improve wallclock time handling"
+    file_patterns:
+      - "cardano-slotting/**"
+
+  # Data structures
+  - name: "strict-containers"
+    description: "Strict variants of standard Haskell containers"
+    examples:
+      - "strict-containers: add strict Map implementation"
+      - "strict-containers: optimize Set operations"
+      - "strict-containers: fix memory leak in strict sequences"
+    file_patterns:
+      - "cardano-strict-containers/**"
+
+  # Deriving utilities
+  - name: "deriving-via"
+    description: "DerivingVia utilities and orphan instances"
+    examples:
+      - "deriving-via: add new DerivingVia helper"
+      - "deriving-via: fix orphan instance compatibility"
+    file_patterns:
+      - "base-deriving-via/**"
+      - "orphans-deriving-via/**"
+
+  # Utilities
+  - name: "utils"
+    description: "Utility packages (git-rev, heapwords, measures)"
+    examples:
+      - "utils: update git revision tracking"
+      - "utils: add memory profiling utilities"
+      - "utils: improve performance measurement tools"
+    file_patterns:
+      - "cardano-git-rev/**"
+      - "heapwords/**"
+      - "measures/**"
+
+  # Build and tooling
+  - name: "build"
+    description: "Build system, Nix, Cabal configuration"
+    examples:
+      - "build: update GHC version to 9.12"
+      - "build: fix Nix flake dependencies"
+      - "build: add new package to cabal.project"
+    file_patterns:
+      - "flake.nix"
+      - "flake.lock"
+      - "cabal.project"
+      - "cabal.project.local"
+      - "*.nix"
+      - ".github/workflows/**"
+      - "scripts/**"
+
+  # Documentation
+  - name: "docs"
+    description: "Documentation files and code comments"
+    examples:
+      - "docs: update installation instructions"
+      - "docs: add release guide"
+      - "docs: improve API documentation"
+    file_patterns:
+      - "*.md"
+      - "docs/**"
+      - "**/*.md"
+
+  # Testing infrastructure
+  - name: "tests"
+    description: "Test utilities and test infrastructure"
+    examples:
+      - "tests: add new test helper functions"
+      - "tests: fix flaky test in CI"
+      - "tests: improve test coverage reporting"
+    file_patterns:
+      - "**/test/**"
+      - "**/tests/**"
+      - "**/*Test.hs"
+      - "**/*Spec.hs"
+
+  # CI/CD
+  - name: "ci"
+    description: "Continuous integration and deployment"
+    examples:
+      - "ci: add Windows cross-compilation job"
+      - "ci: fix Hydra build configuration"
+      - "ci: update GitHub Actions versions"
+    file_patterns:
+      - ".github/**"
+      - ".buildkite/**"
+      - "ci/**"
+
+  # Dependencies
+  - name: "deps"
+    description: "Dependency management and package updates"
+    examples:
+      - "deps: update CHaP index-state"
+      - "deps: bump base dependency bounds"
+      - "deps: add new dependency on vector"
+    file_patterns:
+      - "cabal.project"
+      - "**/*.cabal"
