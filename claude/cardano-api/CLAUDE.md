@@ -135,7 +135,19 @@ The API is organized around domain concepts:
 - **API stability**: The main `Cardano.Api` module only exposes stable, production-ready interfaces
 - **Clear boundaries**: Breaking changes in experimental APIs won't affect users who only import `Cardano.Api`
 
-**Internal modules** (under `.Internal` namespaces) are implementation details and should not be exposed through public API. To add functionality, add it to an Internal module and re-export through the appropriate public module.
+**Module Export Patterns**:
+
+The codebase uses different export strategies for different purposes:
+
+1. **Re-exported modules**: Most stable modules are re-exported by `Cardano.Api`, meaning users can access them with just `import Cardano.Api`. This provides a convenient, batteries-included API surface.
+
+2. **Exposed but not re-exported**: Some modules are listed in `exposed-modules` in the cabal file but intentionally not re-exported by `Cardano.Api`. These require explicit import:
+   - `Cardano.Api.Experimental` - Unstable APIs require explicit opt-in (see explanation above)
+   - Users must write `import Cardano.Api.Experimental` to access these features
+
+3. **Internal modules**: Modules under `.Internal` namespaces are implementation details and should not be used directly. To add functionality, add it to an Internal module and re-export through the appropriate public module.
+
+This pattern allows the API to maintain stability guarantees for the main import while still providing access to specialized or experimental functionality for users who need it.
 
 ### Ledger Integration
 
