@@ -85,13 +85,24 @@ The API uses a type-level era system to track Cardano protocol versions. Underst
 - `ConwayEra` - Current era with governance features
 
 **Eons** (type classes) represent era ranges where features exist:
-- `ShelleyBasedEra` - All eras from Shelley onwards
-- `AlonzoEraOnwards` - Eras supporting Plutus scripts
-- `BabbageEraOnwards` - Eras with reference scripts, inline datums
-- `ConwayEraOnwards` - Eras with governance features
-- Plus several historical ranges (`ByronToAlonzoEra`, `ShelleyToAllegraEra`, etc.)
 
-Eons enable writing functions that work across multiple eras without boilerplate. When adding features, determine which eon constraint to use based on when the feature was introduced.
+*Forward-looking eons* (commonly used for new features):
+- `ShelleyBasedEra` - All eras from Shelley onwards (most common constraint)
+- `AllegraEraOnwards` - Eras from Allegra onwards (token support)
+- `MaryEraOnwards` - Eras from Mary onwards (multi-asset support)
+- `AlonzoEraOnwards` - Eras supporting Plutus scripts
+- `BabbageEraOnwards` - Eras with reference scripts, inline datums, reference inputs
+- `ConwayEraOnwards` - Eras with governance features (current era)
+
+*Historical range eons* (for backwards compatibility):
+- `ByronToAlonzoEra` - Byron through Alonzo (pre-Babbage)
+- `ShelleyEraOnly` - Only the Shelley era
+- `ShelleyToAllegraEra` - Shelley and Allegra only
+- `ShelleyToMaryEra` - Shelley through Mary
+- `ShelleyToAlonzoEra` - Shelley through Alonzo
+- `ShelleyToBabbageEra` - Shelley through Babbage
+
+Eons enable writing functions that work across multiple eras without boilerplate. When adding features, determine which eon constraint to use based on when the feature was introduced. Use forward-looking eons (e.g., `BabbageEraOnwards`) for new features, and historical range eons for maintaining backwards compatibility.
 
 ### Module Structure
 
