@@ -26,7 +26,7 @@ cabal build all
 # Build a specific package
 cabal build cardano-api
 
-# Build with specific GHC version (9.6 or 9.10 supported)
+# Build with specific GHC version (9.6 or 9.10 supported for regular builds)
 cabal build --with-ghc=ghc-9.6.7
 
 # Run all tests
@@ -54,15 +54,17 @@ hlint <file>
 
 ### WASM Build
 
-For WebAssembly builds, requires special GHC setup:
+**Important**: WebAssembly builds require a special wasm32-wasi-ghc compiler, not the standard GHC 9.6/9.10 used for regular builds. The WASM GHC is a cross-compiler targeting WebAssembly.
 
 ```bash
-# Enter WASM Nix shell
+# Enter WASM Nix shell (provides wasm32-wasi-ghc and dependencies)
 nix develop .#wasm
 
-# Then build normally
+# Build with WASM compiler
 cabal build cardano-wasm
 ```
+
+For detailed WASM setup instructions (including non-Nix setup), see [cardano-wasm/README.md](cardano-wasm/README.md).
 
 ### Using Nix
 
