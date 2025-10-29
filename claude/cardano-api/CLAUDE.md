@@ -116,7 +116,16 @@ The API is organized around domain concepts:
 - **Cardano.Api.Governance** - Voting procedures, proposals (Conway onwards)
 - **Cardano.Api.Plutus** - Plutus script integration
 - **Cardano.Api.LedgerState** - Ledger state management and queries
-- **Cardano.Api.Serialise.\*** - Serialisation (Bech32, CBOR, JSON, TextEnvelope, and more)
+- **Cardano.Api.Serialise.\*** - Serialisation modules:
+  - **Bech32** - Bech32 encoding/decoding for addresses and keys
+  - **Cbor** - CBOR serialisation for blockchain types
+  - **Cbor.Canonical** - Canonical CBOR encoding (deterministic)
+  - **Cip129** - CIP-129 serialisation format
+  - **Json** - JSON serialisation for API types
+  - **TextEnvelope** - Text envelope format for keys and certificates
+  - **Raw** - Raw binary serialisation utilities
+  - **SerialiseUsing** - Custom serialisation combinators
+  - **DeserialiseAnyOf** - Polymorphic deserialisation helpers
 - **Cardano.Api.Experimental** - Unstable APIs subject to change (**requires explicit import**, not re-exported by `Cardano.Api`)
 
 **Why Experimental requires explicit import**: The `Cardano.Api.Experimental` module is intentionally not re-exported by the main `Cardano.Api` module to maintain a clear separation between stable and unstable APIs. This design ensures:
