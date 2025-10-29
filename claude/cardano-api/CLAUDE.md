@@ -32,8 +32,11 @@ cabal build --with-ghc=ghc-9.6.7
 # Run all tests
 cabal test all
 
-# Run tests for specific package
+# Run tests for specific package (qualified name works from any directory)
 cabal test cardano-api:cardano-api-test
+
+# Alternative: when in cardano-api/ directory, unqualified name also works
+cabal test cardano-api-test
 
 # Run golden tests
 cabal test cardano-api:cardano-api-golden
